@@ -68,21 +68,9 @@ export class AuthService {
 
   register( registerDTO: registerDTO ){
 
-    const { name , password , email } = registerDTO
-
-    try
-    {
-    
-    this.login( { email: email , password: password } )
-    throw new ConflictException( `User ${ email } already exist`)
-    
-    }
-    catch (error) {
       this.create( registerDTO )
       return 'ok'
   
-    }
-
   }
 
   findAll() {
